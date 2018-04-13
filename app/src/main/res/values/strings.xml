@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Tools</string>
+
+
+    <string name="home">Home</string>
+    <string name="exchange">Exchange</string>
+    <string name="treat">Treat</string>
+    <string name="mine">Mine</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

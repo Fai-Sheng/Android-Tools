@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.fai.tools.ui.fragment_viewpager.ViewPagerFragmentActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:title="沉浸式效果"
+        app:subtitle="miss"
+        app:navigationIcon="@drawable/nav_icon_24dp"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+
+        >
+    </android.support.v7.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/toolbar"
+        android:background="@color/cardview_shadow_end_color"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        >
+    </android.support.v4.view.ViewPager>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:weightSum="4"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:layout_height="match_parent"
+            >
+            <RadioButton
+                android:id="@+id/home_radio"
+                style="@style/RadioButton_Nav"
+                android:button="@null"
+                android:checked="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableTop="@drawable/selector_home"
+                android:text="@string/home" />
+            <RadioButton
+                android:id="@+id/exchange_radio"
+                android:button="@null"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableTop="@drawable/selector_exchange"
+                android:text="@string/exchange"
+                style="@style/RadioButton_Nav"/>
+            <RadioButton
+                android:id="@+id/treat_radio"
+                android:button="@null"
+                android:text="@string/treat"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableTop="@drawable/selector_treat"
+                style="@style/RadioButton_Nav" />
+            <RadioButton
+                android:id="@+id/mine_radio"
+                android:button="@null"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableTop="@drawable/selector_mine"
+                android:text="@string/mine"
+                style="@style/RadioButton_Nav"/>
+
+        </RadioGroup>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="Bottom_Nav_Height">65dp</dimen>
+    <dimen name="Bottom_Nav_Text_Size">12dp</dimen>
+    <dimen name="section_margin">8dp</dimen>
+    <dimen name="section_text_size">16sp</dimen>
+    <dimen name="section_line_spacing_extra">5dp</dimen>
+</resources>

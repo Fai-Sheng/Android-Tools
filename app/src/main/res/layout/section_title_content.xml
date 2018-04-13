@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:textStyle="bold"
+        android:text="我不知道"
+        android:layout_marginTop="@dimen/section_margin"
+        android:layout_marginLeft="@dimen/section_margin"
+        android:textSize="@dimen/section_text_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/content"
+        android:text="大龙贾老师放假死啦家里福建省垃圾发生了放假啊沙路附近浪费撒家里附近来发掘时法拉盛疾风垃圾费拉解放啦设计费了撒娇发牢骚 法拉盛附加拉斯积分撒冷风机了放假啊沙路附近阿楼房吉安里房间爱上了及法律纠纷阿冷风机爱上了放假啊冷风机爱上了房间爱上了房间阿里高峰 浪费撒解放路发酵爱丽丝房间爱睡懒觉垃圾辣椒粉垃圾法拉飞机拉飞机撒了放假啊沙路附近暗杀了放假啊沙路附近啊发积分撒拉法基阿拉"
+        android:maxLines="6"
+        android:lineSpacingExtra="@dimen/section_line_spacing_extra"
+        android:layout_margin="@dimen/section_margin"
+        android:ellipsize="end"
+        android:layout_width="match_parent"
+        android:layout_height="90dp" />
+
+    
+
+</LinearLayout>
