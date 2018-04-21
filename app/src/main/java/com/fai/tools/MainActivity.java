@@ -11,9 +11,12 @@ import com.fai.tools.ui.fragment_viewpager.ViewPagerFragmentActivity;
 import com.fai.tools.ui.mvp.MVPLoginActivity;
 import com.fai.tools.ui.base.BaseActivity;
 import com.fai.tools.ui.toolbar.ToolBarActivity;
+import com.fai.tools.ui.viewpagerdemo.ViewPagerActivity;
 import com.fai.tools.ui.zxing.ZxingActivity;
-
 import java.lang.ref.WeakReference;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
 
@@ -22,13 +25,14 @@ public class MainActivity extends BaseActivity {
     private Button btnToolBar;
     private Button viewPager_fragmentBtn;
 
-    private static final String TAG = "MainActivity";
+    @BindView(R.id.viewPagerDemoBtn)
+    Button viewPagerDemoBtn;
 
+    private static final String TAG = "MainActivity";
 
     static class MainHandler extends Handler{
 
         private WeakReference<MainActivity> weakReferenceMainActivity;
-
 
         public MainHandler(MainActivity mainActivity)
         {
@@ -45,6 +49,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void init(Bundle savedInstanceState) {
+        ButterKnife.bind(this);
         init();
     }
 
@@ -97,13 +102,21 @@ public class MainActivity extends BaseActivity {
         });
 
 
+        viewPagerDemoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ViewPagerActivity.class);
+                startActivity(intent);
+            }
+        });
+
         MainHandler handler = new MainHandler(this);
 
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
 
-                Toast.makeText(getApplicationContext(),"ttt",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"测试Handler内存泄漏问题",Toast.LENGTH_SHORT).show();
 
             }
         },5*1000);

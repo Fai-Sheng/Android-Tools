@@ -5,4 +5,6 @@
     <dimen name="section_margin">8dp</dimen>
     <dimen name="section_text_size">16sp</dimen>
     <dimen name="section_line_spacing_extra">5dp</dimen>
+
+    <dimen name="action_bar_min_height">48dp</dimen>
 </resources>

@@ -34,7 +34,8 @@
         <activity android:name=".ui.zxing.ZxingActivity" />
         <activity android:name=".ui.mvp.MVPLoginActivity" />
         <activity android:name=".ui.toolbar.ToolBarActivity" />
-        <activity android:name=".ui.fragment_viewpager.ViewPagerFragmentActivity"></activity>
+        <activity android:name=".ui.fragment_viewpager.ViewPagerFragmentActivity" />
+        <activity android:name=".ui.viewpagerdemo.ViewPagerActivity"/>
     </application>
 
 </manifest>

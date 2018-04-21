@@ -42,6 +42,6 @@ public class ToolsApplication extends Application{
 
     public void toast()
     {
-        Toast.makeText(this,"sssss",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"测试Dagger的使用",Toast.LENGTH_SHORT).show();
     }
 }

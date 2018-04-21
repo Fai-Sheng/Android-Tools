@@ -1,5 +1,6 @@
 package com.fai.tools.ui.fragment_viewpager;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -16,10 +17,8 @@ import com.fai.tools.ui.fragment_viewpager.fragment.ExchangeFragment;
 import com.fai.tools.ui.fragment_viewpager.fragment.HomeFragment;
 import com.fai.tools.ui.fragment_viewpager.fragment.MineFragment;
 import com.fai.tools.ui.fragment_viewpager.fragment.TreatFragment;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -43,7 +42,7 @@ public class ViewPagerFragmentActivity extends BaseActivity implements ViewPager
     @BindView(R.id.viewpager)
     ViewPager viewPager;
 
-    @BindView(R.id.toolbar)
+    @BindView(R.id.activity_vpf_toolBar)
     Toolbar toolBar;
 
     private ViewPagerAdapter adapter;
@@ -52,7 +51,6 @@ public class ViewPagerFragmentActivity extends BaseActivity implements ViewPager
     private ExchangeFragment exchangeFragment;
     private TreatFragment treatFragment;
     private MineFragment mineFragment;
-
     private List<Fragment> fragmentList;
     private List<RadioButton> radioButtonList;
 
@@ -139,7 +137,11 @@ public class ViewPagerFragmentActivity extends BaseActivity implements ViewPager
                 WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
                 WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 
+//        window.setStatusBarColor(Color.TRANSPARENT);  //设置ToolBar的颜色为 透明色
+
         setSupportActionBar(toolBar);
+
+
 //        toolBar.setNavigationIcon(R.drawable.back_icon_white_24dp);
 //        toolBar.setTitle("沉浸式效果");          //调用了setSupportActionBar之后，toolBar的setTitle的方法就失效了
 //        toolBar.setSubtitle("miss");
@@ -168,8 +170,6 @@ public class ViewPagerFragmentActivity extends BaseActivity implements ViewPager
     }
 
 
-
-
     @Override
     protected int getLayoutId() {
         return R.layout.activity_view_pager_fragment;
@@ -178,6 +178,9 @@ public class ViewPagerFragmentActivity extends BaseActivity implements ViewPager
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        Log.v(TAG,"ViewPager onPageScrolled position :" + String.valueOf(position));
+        Log.v(TAG,"ViewPager onPageScrolled positionOffset :" + String.valueOf(positionOffset));
+        Log.v(TAG,"ViewPager onPageScrolled positionOffsetPixels :" + String.valueOf(positionOffsetPixels));
 
     }
 
@@ -188,6 +191,6 @@ public class ViewPagerFragmentActivity extends BaseActivity implements ViewPager
 
     @Override
     public void onPageScrollStateChanged(int state) {
-
+        Log.v(TAG,"ViewPager onPageScrollStateChanged state :" + String.valueOf(state));
     }
 }
