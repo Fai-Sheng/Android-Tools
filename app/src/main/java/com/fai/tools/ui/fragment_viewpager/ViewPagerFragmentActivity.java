@@ -1,9 +1,10 @@
 package com.fai.tools.ui.fragment_viewpager;
 
-import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Window;
@@ -45,7 +46,10 @@ public class ViewPagerFragmentActivity extends BaseActivity implements ViewPager
     @BindView(R.id.activity_vpf_toolBar)
     Toolbar toolBar;
 
-    private ViewPagerAdapter adapter;
+    @BindView(R.id.cardView)
+    CardView cardView;
+
+    private ViewPagerAdapter<Fragment> adapter;
     private static final String TAG = "VPFActivity";
     private HomeFragment homeFragment;
     private ExchangeFragment exchangeFragment;
@@ -60,6 +64,8 @@ public class ViewPagerFragmentActivity extends BaseActivity implements ViewPager
         initToolBar();
         initFragmentAdapter();
 
+        //这句话至关重要！！！ 没有它，就无法实现 当View的大小大于CardView的时候，View超出边界的部分依旧可以显示
+        cardView.setClipToOutline(false);
     }
 
 
@@ -84,7 +90,7 @@ public class ViewPagerFragmentActivity extends BaseActivity implements ViewPager
         radioButtonList.add(radioMine);
 
         setRadioGroupClickListener();
-        adapter = new ViewPagerAdapter(getSupportFragmentManager(), fragmentList,this);
+        adapter = new ViewPagerAdapter<>(getSupportFragmentManager(), fragmentList,this);
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(this);
         viewPager.setOffscreenPageLimit(3);
@@ -141,9 +147,12 @@ public class ViewPagerFragmentActivity extends BaseActivity implements ViewPager
 
         setSupportActionBar(toolBar);
 
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1)
+        {
+            toolBar.setNavigationIcon(R.drawable.back_icon_white_24dp);
+            toolBar.setTitle("沉浸式效果");          //调用了setSupportActionBar之后，toolBar的setTitle的方法就失效了
+        }
 
-//        toolBar.setNavigationIcon(R.drawable.back_icon_white_24dp);
-//        toolBar.setTitle("沉浸式效果");          //调用了setSupportActionBar之后，toolBar的setTitle的方法就失效了
 //        toolBar.setSubtitle("miss");
 //        setTitle("沉浸式效果");
 
@@ -176,6 +185,9 @@ public class ViewPagerFragmentActivity extends BaseActivity implements ViewPager
     }
 
 
+    //记录手指状态
+    private int  fingerState = 0;
+
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         Log.v(TAG,"ViewPager onPageScrolled position :" + String.valueOf(position));
@@ -187,10 +199,13 @@ public class ViewPagerFragmentActivity extends BaseActivity implements ViewPager
     @Override
     public void onPageSelected(int position) {
         tabSelected(position);
+
     }
 
     @Override
     public void onPageScrollStateChanged(int state) {
         Log.v(TAG,"ViewPager onPageScrollStateChanged state :" + String.valueOf(state));
+
+        fingerState = state;
     }
 }

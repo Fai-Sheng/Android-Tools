@@ -60,4 +60,15 @@
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp" />
 
+
+        <Button
+            android:id="@+id/oneActManyFratsBtn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="一个Activity承载多个Fragment"
+            app:layout_constraintTop_toBottomOf="@+id/viewPagerDemoBtn"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp" />
+
 </android.support.constraint.ConstraintLayout>

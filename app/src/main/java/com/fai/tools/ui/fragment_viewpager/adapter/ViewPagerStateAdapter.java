@@ -10,9 +10,9 @@ import java.util.List;
  * Created by PVer on 2018/3/24.
  */
 
-public class ViewPagerStateAdapter extends FragmentStatePagerAdapter{
+public class ViewPagerStateAdapter<T extends Fragment> extends FragmentStatePagerAdapter{
 
-    private List<Fragment> fragmentList;
+    private List<T> fragmentList;
     private Context context;
     private FragmentManager fm;
 
@@ -20,7 +20,7 @@ public class ViewPagerStateAdapter extends FragmentStatePagerAdapter{
         super(fm);
     }
 
-    public ViewPagerStateAdapter(FragmentManager fm , List<Fragment> fragmentList,Context context)
+    public ViewPagerStateAdapter(FragmentManager fm , List<T> fragmentList,Context context)
     {
         super(fm);
         this.context = context;

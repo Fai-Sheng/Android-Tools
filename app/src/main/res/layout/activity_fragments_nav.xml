@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.fai.tools.ui.fragments_in_one_Activity.FragmentsNavActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/googlBtn"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:text="仿Google交互Demo（流栈式设计）"
+            tools:layout_editor_absoluteX="55dp"
+            tools:layout_editor_absoluteY="210dp"
+            />
+
+        <Button
+            android:id="@+id/weChatBtn"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="4dp"
+            android:text="仿微信交互Demo（最常用栈设计）"
+            app:layout_constraintTop_toBottomOf="@id/googlBtn"
+            tools:layout_editor_absoluteX="55dp"
+            />
+
+        <Button
+            android:id="@+id/zhihuBtn"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="8dp"
+            android:text="仿知乎交互Demo（复杂嵌套栈设计）"
+            app:layout_constraintTop_toBottomOf="@id/weChatBtn"
+            tools:layout_editor_absoluteX="55dp"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>
