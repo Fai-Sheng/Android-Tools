@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:gravity="center"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.fai.tools.ui.fragments_in_one_Activity.FragmentsNavActivity">
+    tools:context="com.fai.tools.ui.fragments_in_one_activity.activity.FragmentsNavActivity">
 
     <LinearLayout
         android:orientation="vertical"
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/googlBtn"
+            android:id="@+id/googleBtn"
             android:layout_width="300dp"
             android:layout_height="70dp"
             android:text="仿Google交互Demo（流栈式设计）"
@@ -28,7 +28,7 @@
             android:layout_height="70dp"
             android:layout_marginTop="4dp"
             android:text="仿微信交互Demo（最常用栈设计）"
-            app:layout_constraintTop_toBottomOf="@id/googlBtn"
+            app:layout_constraintTop_toBottomOf="@id/googleBtn"
             tools:layout_editor_absoluteX="55dp"
             />
 

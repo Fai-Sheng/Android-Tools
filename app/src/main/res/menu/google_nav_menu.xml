@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/tools" android:title="工具"></item>
+        <item android:id="@+id/imports" android:title="导入"></item>
+        <item android:id="@+id/ts" android:title="广播"></item>
+        <item android:id="@+id/weiBo" android:title="微博"></item>
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item android:id="@+id/knows" android:title="知道"></item>
+            <item android:id="@+id/share" android:title="分享"></item>
+        </menu>
+    </item>
+</menu>

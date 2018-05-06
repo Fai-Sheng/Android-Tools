@@ -8,13 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import com.fai.tools.ui.fragment_viewpager.ViewPagerFragmentActivity;
-import com.fai.tools.ui.fragments_in_one_Activity.FragmentsNavActivity;
+import com.fai.tools.ui.fragments_in_one_activity.activity.FragmentsNavActivity;
 import com.fai.tools.ui.mvp.MVPLoginActivity;
 import com.fai.tools.ui.base.BaseActivity;
 import com.fai.tools.ui.toolbar.ToolBarActivity;
 import com.fai.tools.ui.viewpagerdemo.ViewPagerActivity;
 import com.fai.tools.ui.zxing.ZxingActivity;
-import com.squareup.haha.perflib.Main;
 
 import java.lang.ref.WeakReference;
 
@@ -34,7 +33,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.oneActManyFratsBtn)
     Button oneActManyFragmetsBtn;
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "GoogleMainActivity";
 
     static class MainHandler extends Handler{
 
