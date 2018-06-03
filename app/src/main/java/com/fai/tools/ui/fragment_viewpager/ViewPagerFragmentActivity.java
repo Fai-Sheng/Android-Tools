@@ -1,5 +1,6 @@
 package com.fai.tools.ui.fragment_viewpager;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,8 +8,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.fai.tools.R;
@@ -48,6 +51,9 @@ public class ViewPagerFragmentActivity extends BaseActivity implements ViewPager
 
     @BindView(R.id.cardView)
     CardView cardView;
+
+    @BindView(R.id.img_jump_fragments)
+    ImageView imgJump;
 
     private ViewPagerAdapter<Fragment> adapter;
     private static final String TAG = "VPFActivity";
@@ -130,6 +136,15 @@ public class ViewPagerFragmentActivity extends BaseActivity implements ViewPager
                         viewPager.setCurrentItem(3,true);
                         break;
                 }
+            }
+        });
+
+
+        imgJump.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewPagerFragmentActivity.this,FragmentsActivity.class);
+                startActivity(intent);
             }
         });
     }

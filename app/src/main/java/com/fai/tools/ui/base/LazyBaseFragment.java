@@ -12,6 +12,8 @@ import butterknife.ButterKnife;
 
 /**
  * Created by PVer on 2018/3/24.
+ *
+ * 这个 BaseFragment 仅仅 适用于 ViewPager 和 Fragment 结合的页面
  */
 
 public abstract class LazyBaseFragment extends RxFragment{

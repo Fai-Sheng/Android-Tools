@@ -36,8 +36,9 @@
         <activity android:name=".ui.toolbar.ToolBarActivity" />
         <activity android:name=".ui.fragment_viewpager.ViewPagerFragmentActivity" />
         <activity android:name=".ui.viewpagerdemo.ViewPagerActivity" />
-        <activity android:name=".ui.fragments_in_one_activity.activity.FragmentsNavActivity" />
-        <activity android:name=".ui.fragments_in_one_activity.activity.GoogleMainActivity"></activity>
+        <activity android:name=".ui.fragments_in_one_activity.activity.FragmentsDemoNavActivity" />
+        <activity android:name=".ui.fragments_in_one_activity.activity.GoogleMainActivity" />
+        <activity android:name=".ui.fragment_viewpager.FragmentsActivity"></activity>
     </application>
 
 </manifest>

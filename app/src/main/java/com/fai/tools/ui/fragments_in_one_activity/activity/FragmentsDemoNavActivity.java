@@ -9,7 +9,7 @@ import com.fai.tools.ui.base.BaseActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FragmentsNavActivity extends BaseActivity {
+public class FragmentsDemoNavActivity extends BaseActivity {
 
     @BindView(R.id.googleBtn)
     Button btnGoogle;
@@ -28,7 +28,7 @@ public class FragmentsNavActivity extends BaseActivity {
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FragmentsNavActivity.this,GoogleMainActivity.class);
+                Intent intent = new Intent(FragmentsDemoNavActivity.this,GoogleMainActivity.class);
                 startActivity(intent);
             }
         });

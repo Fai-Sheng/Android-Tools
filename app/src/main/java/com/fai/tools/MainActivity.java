@@ -7,8 +7,10 @@ import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.fai.tools.model.ParcelData;
 import com.fai.tools.ui.fragment_viewpager.ViewPagerFragmentActivity;
-import com.fai.tools.ui.fragments_in_one_activity.activity.FragmentsNavActivity;
+import com.fai.tools.ui.fragments_in_one_activity.activity.FragmentsDemoNavActivity;
 import com.fai.tools.ui.mvp.MVPLoginActivity;
 import com.fai.tools.ui.base.BaseActivity;
 import com.fai.tools.ui.toolbar.ToolBarActivity;
@@ -82,6 +84,11 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MVPLoginActivity.class);
+
+                ParcelData data = new ParcelData("fai","engineer","cool job",23,false,null,null);
+
+                intent.putExtra("parcel",data);
+
                 MainActivity.this.startActivity(intent);
             }
         });
@@ -118,7 +125,7 @@ public class MainActivity extends BaseActivity {
         oneActManyFragmetsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, FragmentsNavActivity.class);
+                Intent intent = new Intent(MainActivity.this, FragmentsDemoNavActivity.class);
                 startActivity(intent);
             }
         });

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:gravity="center"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.fai.tools.ui.fragments_in_one_activity.activity.FragmentsNavActivity">
+    tools:context="com.fai.tools.ui.fragments_in_one_activity.activity.FragmentsDemoNavActivity">
 
     <LinearLayout
         android:orientation="vertical"
