@@ -1,5 +1,9 @@
 package com.fai.autoassignment.imp;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
+import com.fai.autoassignment.annotations.ClassParam;
 import com.fai.autoassignment.core.Resolver;
 
 import java.lang.reflect.Field;
@@ -29,6 +33,7 @@ public class FieldResolver implements Resolver{
     // 7.数组和对象如何判断，String类型的判断
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private<K> void resolveGoalObj(K goal) {
         if(goal == null)
         {
@@ -37,7 +42,20 @@ public class FieldResolver implements Resolver{
 
         Field[] fields = goal.getClass().getDeclaredFields();
 
-        //判断是否有内部类
+        for(Field field : fields)
+        {
+            //判断是否有内部类
+            if(field.getDeclaredAnnotation(ClassParam.class) != null)
+            {
+                //有内部类对象
+
+            }
+        }
+    }
+
+
+    private void resolveObjField(Field field)
+    {
 
     }
 
