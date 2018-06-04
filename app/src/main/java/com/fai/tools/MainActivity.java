@@ -65,7 +65,6 @@ public class MainActivity extends BaseActivity {
         return R.layout.activity_main;
     }
 
-
     private void init()
     {
         btnZxing = findViewById(R.id.btn_to_zxing);
