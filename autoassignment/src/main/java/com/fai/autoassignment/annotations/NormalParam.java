@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
  * Created by PVer on 2018/6/4.
  */
 
-@Target(ElementType.TYPE)
-public @interface ClassParam {
+@Target(ElementType.FIELD)
+public @interface NormalParam {
+    String name();
 }

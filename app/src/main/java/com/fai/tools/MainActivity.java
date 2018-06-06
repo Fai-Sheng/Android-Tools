@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.fai.tools.model.Friend;
 import com.fai.tools.model.ParcelData;
 import com.fai.tools.ui.fragment_viewpager.ViewPagerFragmentActivity;
 import com.fai.tools.ui.fragments_in_one_activity.activity.FragmentsDemoNavActivity;
@@ -18,6 +19,7 @@ import com.fai.tools.ui.viewpagerdemo.ViewPagerActivity;
 import com.fai.tools.ui.zxing.ZxingActivity;
 
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Field;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,6 +60,14 @@ public class MainActivity extends BaseActivity {
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
         init();
+    }
+
+    private void ceshi()
+    {
+        Object friend = new Friend();
+
+        Field[] fields = friend.getClass().getDeclaredFields();
+
     }
 
     @Override

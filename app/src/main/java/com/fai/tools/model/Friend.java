@@ -17,6 +17,12 @@ public class Friend implements Parcelable{
     public String career;
     public List<String> flowerList;
 
+
+    public Friend()
+    {
+
+    }
+
     protected Friend(Parcel in) {
         name = in.readString();
         age = in.readInt();
