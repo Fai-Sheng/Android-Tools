@@ -19,7 +19,10 @@ import com.fai.tools.ui.viewpagerdemo.ViewPagerActivity;
 import com.fai.tools.ui.zxing.ZxingActivity;
 
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -60,11 +63,34 @@ public class MainActivity extends BaseActivity {
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
         init();
+        ceshi();
     }
 
     private void ceshi()
     {
-        Object friend = new Friend();
+        Friend friend = new Friend();
+
+        friend.age = 23;
+        friend.integer = 12;
+
+        try {
+            Field field = friend.getClass().getField("age");
+            Type type = field.getType();
+            Class cls = field.getDeclaringClass();
+            int x = field.getInt(friend);
+
+            Field f1 = friend.getClass().getField("flowerList");
+            Type t1 = f1.getType();
+            Class cls1 = f1.getDeclaringClass();
+            f1.set(friend,new ArrayList<String>());
+
+            Field f2 = friend.getClass().getField("integer");
+            Type t2 = f2.getType();
+            Class cls2 = f2.getDeclaringClass();
+
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
 
         Field[] fields = friend.getClass().getDeclaredFields();
 

@@ -8,5 +8,5 @@ import java.lang.reflect.Field;
 
 public class FieldWrapper {
     public Field field;
-    
+    public String annotionName;
 }

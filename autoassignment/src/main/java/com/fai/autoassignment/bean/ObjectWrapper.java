@@ -7,6 +7,7 @@ import java.util.List;
  */
 
 public class ObjectWrapper {
+    public Object obj;
+    public String annotationName;
     public List<FieldWrapper> fields;
-
 }

@@ -4,19 +4,23 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by PVer on 2018/6/1.
  */
 
+@PPP
 public class Friend implements Parcelable{
 
     public String name;
+    public Integer integer;
+    public Set<String> set;
     public int age;
     public int apples;
     public String career;
     public List<String> flowerList;
-
+    int[] ints;
 
     public Friend()
     {

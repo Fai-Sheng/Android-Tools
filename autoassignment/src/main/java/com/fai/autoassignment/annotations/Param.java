@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
  */
 
 @Target(ElementType.FIELD)
-public @interface NormalParam {
-    String name();
+public @interface Param {
+    String name() default "";
 }
