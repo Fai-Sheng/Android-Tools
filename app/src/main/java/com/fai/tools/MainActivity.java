@@ -1,14 +1,17 @@
 package com.fai.tools;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.fai.tools.model.Friend;
+import com.fai.tools.model.PPP;
 import com.fai.tools.model.ParcelData;
 import com.fai.tools.ui.fragment_viewpager.ViewPagerFragmentActivity;
 import com.fai.tools.ui.fragments_in_one_activity.activity.FragmentsDemoNavActivity;
@@ -66,9 +69,12 @@ public class MainActivity extends BaseActivity {
         ceshi();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void ceshi()
     {
         Friend friend = new Friend();
+
+        PPP pp = Friend.class.getDeclaredAnnotation(PPP.class);
 
         friend.age = 23;
         friend.integer = 12;
