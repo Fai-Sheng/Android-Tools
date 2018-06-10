@@ -7,8 +7,6 @@ import com.fai.autoassignment.annotations.EntityParam;
 import com.fai.autoassignment.annotations.Param;
 import com.fai.autoassignment.core.Resolver;
 import com.google.gson.Gson;
-
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 
 /**
