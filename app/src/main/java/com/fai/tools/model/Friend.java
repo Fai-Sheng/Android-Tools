@@ -10,7 +10,6 @@ import java.util.Set;
  * Created by PVer on 2018/6/1.
  */
 
-@PPP
 public class Friend implements Parcelable{
 
     public String name;

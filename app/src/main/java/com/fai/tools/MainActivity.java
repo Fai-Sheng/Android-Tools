@@ -62,6 +62,7 @@ public class MainActivity extends BaseActivity {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);

@@ -7,6 +7,8 @@ import com.fai.autoassignment.annotations.EntityParam;
 import com.fai.autoassignment.annotations.Param;
 import com.fai.autoassignment.core.Resolver;
 import com.google.gson.Gson;
+
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 
 /**
@@ -63,10 +65,14 @@ public class FieldResolver implements Resolver {
             return;
         }
         Class goalFieldClass = goalField.getType();
+        EntityParam goalEntityParam = (EntityParam) goalFieldClass.getDeclaredAnnotation(EntityParam.class);
+
         //1.对象Field
         if (null != goalFieldClass.getDeclaredAnnotation(EntityParam.class)) {
-            EntityParam goalEntityParam = goalField.getDeclaredAnnotation(EntityParam.class);
             String goalEntityParamName = goalEntityParam.name();
+            if(TextUtils.isEmpty(goalEntityParamName)){
+                goalEntityParamName = goalField.getName(); //如果是空值，默认就是name
+            }
             Field srcFieldWithParam = findFieldWithEntityAnnotation(src,goalEntityParamName);
             if(srcFieldWithParam != null){
                 Object goalFieldObj = goalFieldClass.newInstance();
@@ -110,10 +116,15 @@ public class FieldResolver implements Resolver {
         for(Field f : fs){
             f.setAccessible(true);
             Class fieldClass = f.getType();
-            fieldClass.getDeclaredAnnotation(EntityParam.class);
-            if(null != f.getDeclaredAnnotation(EntityParam.class) && f.getDeclaredAnnotation(EntityParam.class).name().equals(name)){
-                //找到对应的字段
-                return f;
+            EntityParam entityParam = (EntityParam) fieldClass.getDeclaredAnnotation(EntityParam.class);
+            String entityParamName = entityParam.name();
+            if(null != entityParam){
+                if(TextUtils.isEmpty(entityParamName)){
+                    entityParamName = f.getName();
+                }
+                if(entityParamName.equals(name)){
+                    return f;
+                }
             }
         }
         return null;
