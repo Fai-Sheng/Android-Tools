@@ -6,13 +6,17 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.RequiresApi;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.fai.autoassignment.core.Resolver;
+import com.fai.autoassignment.imp.FieldResolver;
 import com.fai.tools.model.Friend;
-import com.fai.tools.model.PPP;
 import com.fai.tools.model.ParcelData;
+import com.fai.tools.model.Person;
+import com.fai.tools.model.User;
 import com.fai.tools.ui.fragment_viewpager.ViewPagerFragmentActivity;
 import com.fai.tools.ui.fragments_in_one_activity.activity.FragmentsDemoNavActivity;
 import com.fai.tools.ui.mvp.MVPLoginActivity;
@@ -20,9 +24,9 @@ import com.fai.tools.ui.base.BaseActivity;
 import com.fai.tools.ui.toolbar.ToolBarActivity;
 import com.fai.tools.ui.viewpagerdemo.ViewPagerActivity;
 import com.fai.tools.ui.zxing.ZxingActivity;
+import com.google.gson.Gson;
 
 import java.lang.ref.WeakReference;
-import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -73,34 +77,32 @@ public class MainActivity extends BaseActivity {
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void ceshi()
     {
-        Friend friend = new Friend();
+        User user = new User();
+        user.age = 23;
+        user.carrer = "软件工程师";
+        user.name = "sheng";
+        user.family = new User.Family();
+        user.family.father = "szl";
+        user.family.mother = "wp";
+        user.family.grandMom = "nainai";
+        user.family.grandPa = "yeye";
+        user.x = new User.XXX();
+        user.x.xxx = "qwer";
+        user.x.yyy = "tyui";
+        user.x.zzz = "poiu";
+        user.x.ttt = "asdf";
+        user.x.h = new User.XXX.HHH();
+        user.x.h.ccc = "234";
+        user.x.h.qqq = "456";
+        user.x.h.ooo = "890";
 
-        PPP pp = Friend.class.getDeclaredAnnotation(PPP.class);
-
-        friend.age = 23;
-        friend.integer = 12;
-
-        try {
-            Field field = friend.getClass().getField("age");
-            Type type = field.getType();
-            Class cls = field.getDeclaringClass();
-            int x = field.getInt(friend);
-
-            Field f1 = friend.getClass().getField("flowerList");
-            Type t1 = f1.getType();
-            Class cls1 = f1.getDeclaringClass();
-            f1.set(friend,new ArrayList<String>());
-
-            Field f2 = friend.getClass().getField("integer");
-            Type t2 = f2.getType();
-            Class cls2 = f2.getDeclaringClass();
-
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-
-        Field[] fields = friend.getClass().getDeclaredFields();
-
+        Person person = new Person();
+        FieldResolver fieldResolver = new FieldResolver();
+        person = fieldResolver.execSetParam(user,person);
+        Gson gson = new Gson();
+        String log = gson.toJson(person);
+        Log.v("MainActivity",log);
+        fieldResolver.toString();
     }
 
     @Override
