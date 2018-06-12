@@ -79,7 +79,7 @@ public class MainActivity extends BaseActivity {
     {
         User user = new User();
         user.age = 23;
-        user.carrer = "软件工程师";
+        user.career = "软件工程师";
         user.name = "sheng";
         user.family = new User.Family();
         user.family.father = "szl";

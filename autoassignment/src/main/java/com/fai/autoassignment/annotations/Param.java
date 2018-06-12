@@ -12,4 +12,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface Param {
     String name() default "";
+    String[] fromEntityField() default {""};
 }

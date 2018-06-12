@@ -8,7 +8,7 @@ public class User {
 
     public String name;
     public int age;
-    public String carrer;
+    public String career;
     public Family family;
     public XXX x;
 
@@ -30,6 +30,7 @@ public class User {
             public String qqq;
             public String ooo;
             public String ccc;
+
         }
     }
 }

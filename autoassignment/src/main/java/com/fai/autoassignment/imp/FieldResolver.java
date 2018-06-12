@@ -7,11 +7,11 @@ import com.fai.autoassignment.annotations.EntityParam;
 import com.fai.autoassignment.annotations.Param;
 import com.fai.autoassignment.core.Resolver;
 import java.lang.reflect.Field;
+import java.util.HashSet;
 
 /**
  * Created by PVer on 2018/6/4.
  */
-
 
 // 1.两个相同的CParam 的name值
 
@@ -29,10 +29,13 @@ import java.lang.reflect.Field;
 
 // 8.多个 内部的对象有相同的 字段
 
+    //9.加入是 两个 List 列表 List 的 Item 不是 出自同一个类 ,如何赋值，
+
 public class FieldResolver implements Resolver {
 
     private Object src;
     private Object goal;
+    private HashSet<Field> allFieldSet;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -67,9 +70,26 @@ public class FieldResolver implements Resolver {
         if (null == goalField) {
             return;
         }
+
+        if(resolveObjField(goalField,src,goal)){
+           return;
+        }
+
+        if(resolveFieldWithFromEntityAnnotation(goalField,src,goal)){
+            return;
+        }
+
+        if(resolveParamField(goalField,src,goal)){
+            return;
+        }
+
+        resolveNormalField(goalField,src,goal);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private boolean resolveObjField(Field goalField , Object src, Object goal) throws IllegalAccessException, InstantiationException, NoSuchFieldException {
         Class goalFieldClass = goalField.getType();
         EntityParam goalEntityParam = (EntityParam) goalFieldClass.getDeclaredAnnotation(EntityParam.class);
-
         //1.对象Field
         if (null != goalEntityParam) {
             String goalEntityParamName = goalEntityParam.name();
@@ -82,9 +102,34 @@ public class FieldResolver implements Resolver {
                 goalField.set(goal,goalFieldObj);
                 resolve(srcFieldWithParam.get(src),goalField.get(goal));
             }
-            return;
+            return true;
         }
-        //2.带Param的普通Field
+        return false;
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private boolean resolveFieldWithFromEntityAnnotation(Field goalField , Object src, Object goal)
+    {
+        //2.带Param注解 并且fromEntity有值 的注解的Field
+        Param param = goalField.getDeclaredAnnotation(Param.class);
+        if(null == param){
+            return false;
+        }
+        if(TextUtils.isEmpty(param.fromEntityField()[0])){
+            return false;
+        }
+        String fromEntity = param.fromEntityField()[0];
+//        Field srcField =
+        //从srcField中去寻找需要的field
+
+        return false;
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private boolean resolveParamField(Field goalField , Object src, Object goal) throws NoSuchFieldException, IllegalAccessException {
+        //3.带Param的普通Field
         if (null != goalField.getDeclaredAnnotation(Param.class)) {
             //这个Field带有 Param
             Param goalParam = goalField.getDeclaredAnnotation(Param.class);
@@ -104,16 +149,20 @@ public class FieldResolver implements Resolver {
                     goalField.set(goal,srcField2.get(src));
                 }
             }
-            return;
+            return true;
         }
-        //3.不带注解的普通字段
+        return false;
+    }
+
+    private boolean resolveNormalField(Field goalField , Object src, Object goal) throws NoSuchFieldException, IllegalAccessException {
+        //4.不带注解的普通字段
         String goalFieldName = goalField.getName();
         Field srcField = src.getClass().getField(goalFieldName);
         if(null != srcField){
             goalField.set(goal,srcField.get(src));
         }
+        return true;
     }
-
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private Field findFieldWithEntityAnnotation(Object obj , String name)
@@ -175,4 +224,17 @@ public class FieldResolver implements Resolver {
         return null;
     }
 
+    /**
+     * src中寻找对应的字段
+     * @param names
+     * @param field
+     * @param src
+     * @return
+     */
+    private Field getFieldFromEntityFieldWithName(String[] names,Field field,Object src)
+    {
+        String name = names[0];
+
+        return null;
+    }
 }
