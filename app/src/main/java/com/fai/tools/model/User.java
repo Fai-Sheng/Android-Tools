@@ -11,12 +11,20 @@ public class User {
     public String career;
     public Family family;
     public XXX x;
+    public TTT[] array;
 
     public static class Family{
         public String mother;
         public String father;
         public String grandMom;
         public String grandPa;
+    }
+
+    public static class TTT {
+        public String name;
+        public int id;
+        public String lll;
+        public String xxx;
     }
 
     public static class XXX{

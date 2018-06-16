@@ -12,6 +12,14 @@ public class Person {
     public String name;
     public Jia jia;
     public YYY y;
+    @Param(fromEntityField = {"x","zzz"})
+    public String deepGet;
+    @Param(name = "array")
+    public XTXT[] array;
+
+    public static class XTXT{
+        public String name;
+    }
 
     @EntityParam(name = "Family")
     public static class Jia {

@@ -27,6 +27,7 @@ import com.fai.tools.ui.zxing.ZxingActivity;
 import com.google.gson.Gson;
 
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -74,6 +75,24 @@ public class MainActivity extends BaseActivity {
         ceshi();
     }
 
+    private void ceshi2() throws IllegalAccessException {
+        Person person = new Person();
+        Field[] fields = person.getClass().getDeclaredFields();
+        for(Field field : fields) {
+            Class cls = field.getType();
+            if(cls.isArray())
+            {
+                Class clsss = cls.getComponentType();
+                Log.v("TAG",clsss.getName());
+                Object[] arr = (Object[]) Array.newInstance(clsss,15);
+
+            }
+            Type type = field.getGenericType();
+            Class clss = field.getDeclaringClass();
+        }
+    }
+
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void ceshi()
     {
@@ -96,6 +115,25 @@ public class MainActivity extends BaseActivity {
         user.x.h.qqq = "456";
         user.x.h.ooo = "890";
 
+        User.TTT t1 = new User.TTT();
+        t1.id = 1;
+        t1.name = "shengchang";
+        t1.lll = "ganrao";
+        t1.xxx = "wokao";
+
+        User.TTT t2 = new User.TTT();
+        t2.id = 1;
+        t2.name = "shengchang";
+        t2.lll = "ganrao";
+        t2.xxx = "wokao";
+
+        User.TTT t3 = new User.TTT();
+        t3.id = 1;
+        t3.name = "shengchang";
+        t3.lll = "ganrao";
+        t3.xxx = "wokao";
+        user.array = new User.TTT[]{t1,t2,t3};
+
         Person person = new Person();
         FieldResolver fieldResolver = new FieldResolver();
         person = fieldResolver.execSetParam(user,person);
@@ -103,6 +141,7 @@ public class MainActivity extends BaseActivity {
         String log = gson.toJson(person);
         Log.v("MainActivity",log);
         fieldResolver.toString();
+
     }
 
     @Override
