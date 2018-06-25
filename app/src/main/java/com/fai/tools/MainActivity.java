@@ -10,31 +10,25 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
-import com.fai.autoassignment.core.Resolver;
 import com.fai.autoassignment.imp.FieldResolver;
-import com.fai.tools.model.Friend;
 import com.fai.tools.model.ParcelData;
 import com.fai.tools.model.Person;
 import com.fai.tools.model.User;
+import com.fai.tools.ui.base.BaseActivity;
 import com.fai.tools.ui.fragment_viewpager.ViewPagerFragmentActivity;
 import com.fai.tools.ui.fragments_in_one_activity.activity.FragmentsDemoNavActivity;
 import com.fai.tools.ui.mvp.MVPLoginActivity;
-import com.fai.tools.ui.base.BaseActivity;
 import com.fai.tools.ui.toolbar.ToolBarActivity;
 import com.fai.tools.ui.viewpagerdemo.ViewPagerActivity;
 import com.fai.tools.ui.zxing.ZxingActivity;
 import com.google.gson.Gson;
-
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 public class MainActivity extends BaseActivity {
 
     private Button btnZxing;
@@ -72,7 +66,11 @@ public class MainActivity extends BaseActivity {
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
         init();
-        ceshi();
+        try {
+            ceshi2();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
 
     private void ceshi2() throws IllegalAccessException {
@@ -80,14 +78,18 @@ public class MainActivity extends BaseActivity {
         Field[] fields = person.getClass().getDeclaredFields();
         for(Field field : fields) {
             Class cls = field.getType();
+            String clsName = cls.getSimpleName();
+            String clsSS  = cls.getName();
             if(cls.isArray())
             {
                 Class clsss = cls.getComponentType();
                 Log.v("TAG",clsss.getName());
                 Object[] arr = (Object[]) Array.newInstance(clsss,15);
-
             }
             Type type = field.getGenericType();
+            String name = type.getClass().getSimpleName();
+//            ParameterizedType type1 = (ParameterizedType) field.getGenericType();
+//            Type type2 = type1.getActualTypeArguments()[0];
             Class clss = field.getDeclaringClass();
         }
     }

@@ -3,6 +3,8 @@ package com.fai.tools.model;
 import com.fai.autoassignment.annotations.EntityParam;
 import com.fai.autoassignment.annotations.Param;
 
+import java.util.List;
+
 /**
  * Created by PVer on 2018/6/11.
  */
@@ -16,6 +18,8 @@ public class Person {
     public String deepGet;
     @Param(name = "array")
     public XTXT[] array;
+
+    public List<XTXT> xtList;
 
     public static class XTXT{
         public String name;
