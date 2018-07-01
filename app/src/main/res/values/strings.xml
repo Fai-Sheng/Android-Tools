@@ -9,5 +9,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="btn_anim">Anim</string>
+    <string name="btn_anim_1">Anim1</string>
+    <string name="btn_anim_2">Anim2</string>
 </resources>

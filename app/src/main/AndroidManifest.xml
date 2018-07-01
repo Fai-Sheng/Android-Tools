@@ -38,7 +38,10 @@
         <activity android:name=".ui.viewpagerdemo.ViewPagerActivity" />
         <activity android:name=".ui.fragments_in_one_activity.activity.FragmentsDemoNavActivity" />
         <activity android:name=".ui.fragments_in_one_activity.activity.GoogleMainActivity" />
-        <activity android:name=".ui.fragment_viewpager.FragmentsActivity"></activity>
+        <activity android:name=".ui.fragment_viewpager.FragmentsActivity" />
+        <activity android:name=".ui.imgpreview.ImagePreviewActivity" />
+        <activity android:name=".ui.imgpreview.GridImageActivity" />
+        <activity android:name=".ui.anim.AnimActivity"></activity>
     </application>
 
 </manifest>
