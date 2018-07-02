@@ -5,6 +5,8 @@ import com.fai.autoassignment.annotations.Param;
 
 import java.util.List;
 
+import retrofit2.http.PartMap;
+
 /**
  * Created by PVer on 2018/6/11.
  */
@@ -18,11 +20,13 @@ public class Person {
     public String deepGet;
     @Param(name = "array")
     public XTXT[] array;
-
-    public List<XTXT> xtList;
+    public List<XTXT> list;
 
     public static class XTXT{
         public String name;
+        public String xxx;
+        public String yyy;
+        public String zzz;
     }
 
     @EntityParam(name = "Family")

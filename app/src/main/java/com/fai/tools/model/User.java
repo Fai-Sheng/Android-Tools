@@ -1,5 +1,7 @@
 package com.fai.tools.model;
 
+import java.util.List;
+
 /**
  * Created by PVer on 2018/6/11.
  */
@@ -12,6 +14,7 @@ public class User {
     public Family family;
     public XXX x;
     public TTT[] array;
+    public List<XXX> list;
 
     public static class Family{
         public String mother;

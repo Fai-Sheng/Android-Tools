@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import com.fai.autoassignment.imp.FieldResolver;
+import com.fai.tools.model.Crowd;
+import com.fai.tools.model.People;
 import com.fai.tools.model.Person;
 import com.fai.tools.model.User;
 import com.fai.tools.ui.imgpreview.GridImageActivity;
@@ -134,6 +136,15 @@ public class MainActivity extends BaseActivity {
         user.x.h.qqq = "456";
         user.x.h.ooo = "890";
 
+        user.list = new ArrayList<>();
+        User.XXX xxx = new User.XXX();
+        xxx.yyy = "yyy";
+        xxx.xxx = "xxx";
+        xxx.zzz = "zzz";
+        user.list.add(xxx);
+        user.list.add(xxx);
+        user.list.add(xxx);
+
         User.TTT t1 = new User.TTT();
         t1.id = 1;
         t1.name = "shengchang";
@@ -153,6 +164,8 @@ public class MainActivity extends BaseActivity {
         t3.xxx = "wokao";
         user.array = new User.TTT[]{t1,t2,t3};
 
+
+
         Person person = new Person();
         FieldResolver fieldResolver = new FieldResolver();
         person = fieldResolver.execSetParam(user,person);
@@ -161,6 +174,29 @@ public class MainActivity extends BaseActivity {
         Log.v("MainActivity",log);
         fieldResolver.toString();
 
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void ceshi3()
+    {
+        People people = new People();
+        people.list = new People.P[3];
+        People.P p  = new People.P();
+        p.name = "sheng";
+        p.xxx = "xxx";
+        p.yyy = "yyy";
+        p.age = 23;
+        p.sex = "nan";
+
+        people.list[0] = p;
+        people.list[1] = p;
+        people.list[2] = p;
+
+        Crowd crowd = new Crowd();
+        FieldResolver fieldResolver = new FieldResolver();
+        crowd = fieldResolver.execSetParam(people,crowd);
+        Gson gson = new Gson();
+        Log.v("MainActivity",gson.toJson(crowd));
     }
 
     @Override
