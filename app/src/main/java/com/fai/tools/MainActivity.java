@@ -135,6 +135,7 @@ public class MainActivity extends BaseActivity {
         user.x.h.ccc = "234";
         user.x.h.qqq = "456";
         user.x.h.ooo = "890";
+        user.wodeX = 1000;
 
         user.list = new ArrayList<>();
         User.XXX xxx = new User.XXX();

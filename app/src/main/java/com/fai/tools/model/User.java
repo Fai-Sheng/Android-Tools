@@ -15,6 +15,7 @@ public class User {
     public XXX x;
     public TTT[] array;
     public List<XXX> list;
+    public int wodeX;
 
     public static class Family{
         public String mother;

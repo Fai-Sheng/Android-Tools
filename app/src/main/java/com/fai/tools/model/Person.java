@@ -5,22 +5,23 @@ import com.fai.autoassignment.annotations.Param;
 
 import java.util.List;
 
-import retrofit2.http.PartMap;
 
 /**
  * Created by PVer on 2018/6/11.
  */
 
 public class Person {
-    @Param(name = "career")
+    @Param(name = "txlx")
     public String name;
     public Jia jia;
     public YYY y;
-    @Param(fromEntityField = {"x","zzz"})
+    @Param(fromEntityField = {"x","zzz","sdsl"})
     public String deepGet;
     @Param(name = "array")
     public XTXT[] array;
     public List<XTXT> list;
+
+    public long wodeX;
 
     public static class XTXT{
         public String name;
