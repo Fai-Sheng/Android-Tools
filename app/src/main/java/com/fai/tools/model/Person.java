@@ -17,6 +17,8 @@ public class Person {
     public String career;
     @Param(name = "a")
     public W w;
+    @Param(fromEntityField = {"a","b","c","d","love"})
+    public String deep;
 
     @EntityParam(name = "W")
     public static class W {
