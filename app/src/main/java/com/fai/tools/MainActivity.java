@@ -87,7 +87,6 @@ public class MainActivity extends BaseActivity {
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
         init();
-
         ceshi();
     }
 
@@ -118,87 +117,34 @@ public class MainActivity extends BaseActivity {
     private void ceshi()
     {
         User user = new User();
-        user.age = 23;
-        user.career = "软件工程师";
-        user.name = "sheng";
-        user.family = new User.Family();
-        user.family.father = "szl";
-        user.family.mother = "wp";
-        user.family.grandMom = "nainai";
-        user.family.grandPa = "yeye";
-        user.x = new User.XXX();
-        user.x.xxx = "qwer";
-        user.x.yyy = "tyui";
-        user.x.zzz = "poiu";
-        user.x.ttt = "asdf";
-        user.x.h = new User.XXX.HHH();
-        user.x.h.ccc = "234";
-        user.x.h.qqq = "456";
-        user.x.h.ooo = "890";
-        user.wodeX = 1000;
-
-        user.list = new ArrayList<>();
-        User.XXX xxx = new User.XXX();
-        xxx.yyy = "yyy";
-        xxx.xxx = "xxx";
-        xxx.zzz = "zzz";
-        user.list.add(xxx);
-        user.list.add(xxx);
-        user.list.add(xxx);
-
-        User.TTT t1 = new User.TTT();
-        t1.id = 1;
-        t1.name = "shengchang";
-        t1.lll = "ganrao";
-        t1.xxx = "wokao";
-
-        User.TTT t2 = new User.TTT();
-        t2.id = 1;
-        t2.name = "shengchang";
-        t2.lll = "ganrao";
-        t2.xxx = "wokao";
-
-        User.TTT t3 = new User.TTT();
-        t3.id = 1;
-        t3.name = "shengchang";
-        t3.lll = "ganrao";
-        t3.xxx = "wokao";
-        user.array = new User.TTT[]{t1,t2,t3};
-
-
-
+        user.setmAge(23);
+        user.setmCareer("软件工程师");
+        user.setmSex("男");
+        user.setName("大圣");
+        user.a = new User.A();
+        user.a.b = new User.A.B();
+        user.a.b.c = new User.A.B.C();
+        user.a.b.c.d = new User.A.B.C.D();
+        user.a.b.c.d.love = "zhege shi zhen shen";
         Person person = new Person();
+
+        Crowd src = new Crowd();
+        src.list = new User[4];
+        src.list[0] = user;
+        src.list[1] = user;
+        src.list[2] = user;
+        src.list[3] = user;
+
+        People goal = new People();
+
         FieldResolver fieldResolver = new FieldResolver();
-        person = fieldResolver.execSetParam(user,person);
+        goal = fieldResolver.execSetParam(src,goal);
         Gson gson = new Gson();
-        String log = gson.toJson(person);
+        String log = gson.toJson(goal);
         Log.v("MainActivity",log);
         fieldResolver.toString();
-
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    private void ceshi3()
-    {
-        People people = new People();
-        people.list = new People.P[3];
-        People.P p  = new People.P();
-        p.name = "sheng";
-        p.xxx = "xxx";
-        p.yyy = "yyy";
-        p.age = 23;
-        p.sex = "nan";
-
-        people.list[0] = p;
-        people.list[1] = p;
-        people.list[2] = p;
-
-        Crowd crowd = new Crowd();
-        FieldResolver fieldResolver = new FieldResolver();
-        crowd = fieldResolver.execSetParam(people,crowd);
-        Gson gson = new Gson();
-        Log.v("MainActivity",gson.toJson(crowd));
-    }
 
     @Override
     protected int getLayoutId() {
@@ -212,9 +158,7 @@ public class MainActivity extends BaseActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-
                 Toast.makeText(getApplicationContext(),"测试Handler内存泄漏问题",Toast.LENGTH_SHORT).show();
-
             }
         },5*1000);
     }
