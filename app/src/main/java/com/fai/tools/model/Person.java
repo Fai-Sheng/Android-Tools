@@ -1,6 +1,5 @@
 package com.fai.tools.model;
 
-import com.fai.autoassignment.annotations.EntityParam;
 import com.fai.autoassignment.annotations.Param;
 
 /**
@@ -20,21 +19,17 @@ public class Person {
     @Param(fromEntityField = {"a","b","c","d","love"})
     public String deep;
 
-    @EntityParam(name = "W")
     public static class W {
+        @Param(name = "b")
         public X x;
 
-        @EntityParam(name = "X")
         public static class X{
-
+            @Param(name = "c")
             public Y y;
 
-            @EntityParam(name = "Y")
             public static class Y{
-
-
+                @Param(name = "d")
                 public Z z;
-                @EntityParam(name = "Z")
                 public static class Z{
 
                     @Param(name = "love")

@@ -1,9 +1,6 @@
 package com.fai.tools.model;
 
-import com.fai.autoassignment.annotations.EntityParam;
 import com.fai.autoassignment.annotations.Param;
-
-import retrofit2.http.FormUrlEncoded;
 
 /**
  * Created by PVer on 2018/6/11.
@@ -20,16 +17,12 @@ public class User {
 
     public A a;
 
-    @EntityParam(name = "W")
     public static class A {
         public B b;
-        @EntityParam(name = "X")
         public static class B{
             public C c;
-            @EntityParam(name = "Y")
             public static  class C{
                 public D d;
-                @EntityParam(name = "Z")
                 public static class D{
                     public String love;
                 }

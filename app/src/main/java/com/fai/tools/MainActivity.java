@@ -138,9 +138,9 @@ public class MainActivity extends BaseActivity {
         People goal = new People();
 
         FieldResolver fieldResolver = new FieldResolver();
-        goal = fieldResolver.execSetParam(src,goal);
+        person = fieldResolver.execSetParam(user,person);
         Gson gson = new Gson();
-        String log = gson.toJson(goal);
+        String log = gson.toJson(person);
         Log.v("MainActivity",log);
         fieldResolver.toString();
     }
